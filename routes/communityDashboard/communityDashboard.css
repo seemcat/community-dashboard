@@ -34,3 +34,7 @@ html, body {
 	display: flex;
 	font-size: 20px;
 }
+
+.gray-light {
+	background: #f6f6f6;
+}

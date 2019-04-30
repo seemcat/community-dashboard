@@ -16,6 +16,7 @@ const CommunityDashboard = () => (
 	</div>
 	</div>
 
+	<div className="gray-light">
 	<div className="subtitle">
 	👥 CONTRIBUTORS
 	</div>
@@ -32,6 +33,7 @@ const CommunityDashboard = () => (
 	<div className="row-container">
 	(TEACHFX INSIGHT)
 	</div>
+	</div>
 
 	<div className="subtitle">
 	🤝 SHARES
@@ -45,6 +47,7 @@ const CommunityDashboard = () => (
 	(TEACHFX INSIGHT)
 	</div>
 
+	<div className="gray-light">
 	<div className="subtitle">
 	🗣 TEACHER VS. STUDENT
 	</div>
@@ -55,6 +58,7 @@ const CommunityDashboard = () => (
 
 	<div className="row-container">
 	(TEACHFX INSIGHT)
+	</div>
 	</div>
 
 	</div>
