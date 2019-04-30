@@ -1,5 +1,7 @@
 import React from 'react'
-import './communityDashboard.css';
+import './communityDashboard.css'
+import TotalRecordings from '../../components/totalRecordings'
+import RecordingsToRoles from '../../components/recordingsToRoles'
 
 const CommunityDashboard = () => (
 	<div className="col-container">
@@ -9,7 +11,7 @@ const CommunityDashboard = () => (
 
 	<div className="row-container">
 	<div className="item">
-	(#)
+	<TotalRecordings />
 	</div>
 	<div className="item">
 	RECORDINGS SO FAR!
@@ -23,7 +25,7 @@ const CommunityDashboard = () => (
 
 	<div className="row-container">
 	<div className="item">
-	(BAR GRAPH)
+	<RecordingsToRoles />
 	</div>
 	<div className="item">
 	(AVG RECORDINGS PER WEEK)
