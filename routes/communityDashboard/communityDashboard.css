@@ -1,0 +1,40 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	font-family: 'Nunito', sans-serif;
+}
+
+.col-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	display: flex;
+	padding: 35px;
+	justify-content: center;
+	font-size: 32.5px;
+}
+
+.row-container {
+	display: flex;
+	margin: 10px;
+	justify-content: center;
+}
+
+.item {
+	display: flex;
+	padding: 5px;
+}
+
+.subtitle {
+	margin-top: 15px;
+	margin-left: 35px;
+	display: flex;
+	font-size: 20px;
+}
+
+.gray-light {
+	background: #f6f6f6;
+}
