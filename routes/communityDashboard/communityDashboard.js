@@ -1,8 +1,8 @@
 import React from 'react'
 import './communityDashboard.css'
-import TotalRecordings from '../../components/totalRecordings'
 import RecordingsToRoles from '../../components/recordingsToRoles'
 import FrequencyToRoles from '../../components/frequencyToRoles'
+import SharesByTeachers from '../../components/SharesByTeachers'
 
 const recordings = require('../../data/recordings.json')
 const users = require('../../data/users.json')
@@ -21,6 +21,7 @@ const CommunityDashboard = () => {
 
 	let uniqueRoles = [];
 	let recordingsToRolesArray = [];
+	let recordingsByTeachers = [];
 
 	/* MAP TOTAL # OF RECORDINGS TO EACH ROLE */
 	for (let i = 0; i < recordings.length; i++) {
@@ -33,6 +34,10 @@ const CommunityDashboard = () => {
 			// Check if role was properly entered
 			if (usersToRoles[userId]) {
 				let roleIdx;
+
+				// Keep track of recordings made by teachers
+				if (usersToRoles[userId] === 'Teacher')
+					recordingsByTeachers.push(recordings[i]);
 
 				// Check if role has been seen before
 				if (uniqueRoles.includes(usersToRoles[userId])) {
@@ -51,21 +56,10 @@ const CommunityDashboard = () => {
 		}
 	}
 
-	console.log('recordingsToRolesArray: ', recordingsToRolesArray);
-
 	return (
 		<div className="col-container">
 		<div className="title">
 		Community Dashboard
-		</div>
-
-		<div className="row-container">
-		<div className="item">
-		<TotalRecordings />
-		</div>
-		<div className="item">
-		RECORDINGS SO FAR!
-		</div>
 		</div>
 
 		<div className="gray-light">
@@ -74,10 +68,12 @@ const CommunityDashboard = () => {
 		</div>
 
 		<div className="row-container">
-		<div className="item">
+		<div className="col-container">
+		<div className="graph-title"># of Recordings/Role</div>
 		<RecordingsToRoles recordingsToRolesArray={recordingsToRolesArray} />
 		</div>
-		<div className="item">
+		<div className="col-container">
+		<div className="graph-title">Weekly Frequency of Recordings/Role</div>
 		<FrequencyToRoles uniqueRoles={uniqueRoles} recordings={recordings} usersToRoles={usersToRoles} />
 		</div>
 		</div>
@@ -92,7 +88,7 @@ const CommunityDashboard = () => {
 		</div>
 
 		<div className="row-container">
-		(PIE CHART)
+		<SharesByTeachers recordings={recordings} recordingsByTeachers={recordingsByTeachers} />
 		</div>
 
 		<div className="row-container">

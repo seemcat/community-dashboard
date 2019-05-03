@@ -3,9 +3,11 @@ import {
 	VictoryChart, 
 	VictoryGroup, 
 	VictoryLine,
+	VictoryLegend,
 } from 'victory';
 
 const FrequencyToRoles = ({ uniqueRoles, recordings, usersToRoles }) => {
+	// TODO: Add labels to x and y axis
 
 	/* BUILD RESULT'S VICTORY-ORIENTED SKELETON OFF OF KNOWN DATA */
 	var frequencyToRolesObj = {}; // x = week, y = number of recordings for that week
@@ -45,16 +47,28 @@ const FrequencyToRoles = ({ uniqueRoles, recordings, usersToRoles }) => {
 		i += 1;
 	}
 
+	let legendData = uniqueRoles.reduce((roleLabels, role) => {
+		roleLabels.push({ name: role });
+		return roleLabels;
+	}, []);
+
 	return (
 		<VictoryChart>
-		<VictoryGroup offset={20}
-		colorScale={"qualitative"}
+		<VictoryLegend 
+		orientation="horizontal"
+		colorScale="warm"
+		itemsPerRow={2}
+		x={70} y={-25}
+		style={{ border: { stroke: "black" } }}
+		data={legendData}
+		/>
+		<VictoryGroup 
 		>
 		{
 			uniqueRoles.map((role, i) =>
 				<VictoryLine
+				colorScale="warm"
 				key={i}
-				width={800}
 				data={frequencyToRolesObj[role]}
 				/>
 			)
