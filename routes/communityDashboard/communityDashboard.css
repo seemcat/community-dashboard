@@ -20,7 +20,7 @@ html, body {
 .row-container {
 	display: flex;
 	margin: 10px;
-	justify-content: center;
+	justify-content: space-around;
 }
 
 .item {
@@ -37,4 +37,9 @@ html, body {
 
 .gray-light {
 	background: #f6f6f6;
+}
+
+.graph-title {
+	text-align: center;
+	background: white;
 }
