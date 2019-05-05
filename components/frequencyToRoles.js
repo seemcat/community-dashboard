@@ -7,7 +7,6 @@ import {
 } from 'victory';
 
 const FrequencyToRoles = ({ uniqueRoles, recordings, usersToRoles }) => {
-	// TODO: Add labels to x and y axis
 
 	/* BUILD RESULT'S VICTORY-ORIENTED SKELETON OFF OF KNOWN DATA */
 	var frequencyToRolesObj = {}; // x = week, y = number of recordings for that week
@@ -16,7 +15,7 @@ const FrequencyToRoles = ({ uniqueRoles, recordings, usersToRoles }) => {
 	}
 
 	/* VARIABLES TO HELP ME ITERATE THROUGH RECORDINGS */
-	let schoolWeek = {}; // key: value => Mon: Jun 28 1993
+	let schoolWeek = {}; // e.g. { Mon: Jun 28 1993 }
 	let i = 0;
 	let week = 0;
 
@@ -34,7 +33,7 @@ const FrequencyToRoles = ({ uniqueRoles, recordings, usersToRoles }) => {
 			schoolWeek = {};
 		}
 
-		// Frequency of recordings of specified role
+		// Frequency of recordings of specific role
 		// Ex: teachers: [ {x: 0, y: 3}, {x: 1, y: 1}, ... ]
 		let arrOfFrequencies = frequencyToRolesObj[usersToRoles[userId]];
 
