@@ -101,22 +101,24 @@ const CommunityDashboard = () => {
 		</div>
 		</div>
 
+
+
 		<div className="white">
+		<div className="subtitle">
+		🗣 TEACHER VS. STUDENT
+		</div>
+		<div className="col-container-1">
+		<TeacherVsStudent recordings={recordings} />
+		</div>
+		</div>
+
+		<div className="gray">
 		<div className="subtitle">
 		🤝 SHARES
 		</div>
 		<div className="col-container-1">
 		<div className="graph-title"># of Shares/Sharer</div>
 		<SharesByTeachers recordings={recordings} recordingsByTeachers={recordingsByTeachers} />
-		</div>
-		</div>
-
-		<div className="gray">
-		<div className="subtitle">
-		🗣 TEACHER VS. STUDENT
-		</div>
-		<div className="col-container-1">
-		<TeacherVsStudent recordings={recordings} />
 		</div>
 		</div>
 		</div>

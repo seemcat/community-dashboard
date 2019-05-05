@@ -9,6 +9,7 @@ import {
 const SharesByTeachers = ({ recordings, recordingsByTeachers  }) => {
 
 	let uniqueSharers = {};
+	// Populate uniqueSharers; those who share & # of times they shared.
 	for (let i = 0; i < recordingsByTeachers.length; i++) {
 		if (recordingsByTeachers[i].sharedWith.length >= 1) {
 			uniqueSharers[recordingsByTeachers[i].userId] = 
@@ -37,7 +38,7 @@ const SharesByTeachers = ({ recordings, recordingsByTeachers  }) => {
 		style={{
 			parent: {
 				width: "50%",
-				height: "50%",
+					height: "50%",
 			}
 		}}
 		domainPadding={25}
