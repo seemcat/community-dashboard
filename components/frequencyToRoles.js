@@ -3,7 +3,7 @@ import {
 	VictoryChart, 
 	VictoryGroup, 
 	VictoryLine,
-	VictoryLegend,
+	VictoryAxis,
 } from 'victory';
 
 const FrequencyToRoles = ({ uniqueRoles, recordings, usersToRoles }) => {
@@ -47,20 +47,20 @@ const FrequencyToRoles = ({ uniqueRoles, recordings, usersToRoles }) => {
 		i += 1;
 	}
 
-	let legendData = uniqueRoles.reduce((roleLabels, role) => {
-		roleLabels.push({ name: role });
-		return roleLabels;
-	}, []);
-
 	return (
-		<VictoryChart>
-		<VictoryLegend 
-		orientation="horizontal"
-		colorScale="warm"
-		itemsPerRow={2}
-		x={70} y={-25}
-		style={{ border: { stroke: "black" } }}
-		data={legendData}
+		<div>
+		<VictoryChart
+		width={500}
+		height={400}
+		>
+		<VictoryAxis
+		label="Week"
+		style={{axisLabel: {fontSize: 10, padding: 40} }}
+		/>
+		<VictoryAxis
+		dependentAxis
+		label="Recording Count"
+		style={{axisLabel: {fontSize: 10, padding: 35 } }} 
 		/>
 		<VictoryGroup 
 		>
@@ -69,12 +69,14 @@ const FrequencyToRoles = ({ uniqueRoles, recordings, usersToRoles }) => {
 				<VictoryLine
 				colorScale="warm"
 				key={i}
+				style={{ data: { strokeWidth: 10 } }}
 				data={frequencyToRolesObj[role]}
 				/>
 			)
 		}
 		</VictoryGroup>
 		</VictoryChart>
+		</div>
 	)
 }
 

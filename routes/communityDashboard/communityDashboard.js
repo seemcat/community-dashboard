@@ -3,9 +3,11 @@ import './communityDashboard.css'
 import RecordingsToRoles from '../../components/recordingsToRoles'
 import FrequencyToRoles from '../../components/frequencyToRoles'
 import SharesByTeachers from '../../components/SharesByTeachers'
+import TeacherVsStudent from '../../components/TeacherVsStudent'
 
 const recordings = require('../../data/recordings.json')
 const users = require('../../data/users.json')
+import { VictoryLegend } from 'victory';
 
 const CommunityDashboard = () => {
 
@@ -56,17 +58,36 @@ const CommunityDashboard = () => {
 		}
 	}
 
+	let legendData = uniqueRoles.reduce((roleLabels, role) => {
+		roleLabels.push({ name: role });
+		return roleLabels;
+	}, []);
+
 	return (
 		<div className="col-container">
 		<div className="title">
 		Community Dashboard
 		</div>
 
-		<div className="gray-light">
+		<div className="gray">
 		<div className="subtitle">
 		👥 CONTRIBUTORS
 		</div>
-
+		<div className="col-container">
+		<div className="legend-container">
+		<div className="item-svg">
+		<svg viewBox="0 0 300 300">
+		<VictoryLegend 
+		standalone={false}
+		orientation="horizontal"
+		colorScale="warm"
+		itemsPerRow={2}
+		data={legendData}
+		style={{ border: { stroke: "black" } }}
+		/>
+		</svg>
+		</div>
+		</div>
 		<div className="row-container">
 		<div className="col-container">
 		<div className="graph-title"># of Recordings/Role</div>
@@ -77,38 +98,27 @@ const CommunityDashboard = () => {
 		<FrequencyToRoles uniqueRoles={uniqueRoles} recordings={recordings} usersToRoles={usersToRoles} />
 		</div>
 		</div>
-
-		<div className="row-container">
-		(TEACHFX INSIGHT)
 		</div>
 		</div>
 
+		<div className="white">
 		<div className="subtitle">
 		🤝 SHARES
 		</div>
-
-		<div className="row-container">
+		<div className="col-container-1">
+		<div className="graph-title"># of Shares/Sharer</div>
 		<SharesByTeachers recordings={recordings} recordingsByTeachers={recordingsByTeachers} />
 		</div>
-
-		<div className="row-container">
-		(TEACHFX INSIGHT)
 		</div>
 
-		<div className="gray-light">
+		<div className="gray">
 		<div className="subtitle">
 		🗣 TEACHER VS. STUDENT
 		</div>
-
-		<div className="row-container">
-		(LINE CHART)
-		</div>
-
-		<div className="row-container">
-		(TEACHFX INSIGHT)
+		<div className="col-container-1">
+		<TeacherVsStudent recordings={recordings} />
 		</div>
 		</div>
-
 		</div>
 	)
 }

@@ -10,11 +10,26 @@ html, body {
 	flex-direction: column;
 }
 
+.legend-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.col-container-1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 15px;
+}
+
 .title {
 	display: flex;
 	padding: 35px;
 	justify-content: center;
 	font-size: 32.5px;
+	background-color: rgba(0, 187, 255, 1);
+	color: white;
 }
 
 .row-container {
@@ -28,18 +43,30 @@ html, body {
 	padding: 5px;
 }
 
-.subtitle {
-	margin-top: 15px;
-	margin-left: 35px;
-	display: flex;
-	font-size: 20px;
+.item-svg {
+	width: 286px;
+	height: 62px;
 }
 
-.gray-light {
+.subtitle {
+	margin-top: 25px;
+	margin-left: 35px;
+	margin-bottom: 15px;
+	display: flex;
+	font-size: 29px;
+	font-weight: bold;
+}
+
+.gray {
 	background: #f6f6f6;
+}
+
+.white {
+	background: white;
 }
 
 .graph-title {
 	text-align: center;
-	background: white;
+	padding: 10px;
+	border-bottom: 1px solid;
 }

@@ -2,6 +2,8 @@ import React from 'react'
 import { 
 	VictoryChart, 
 	VictoryBar, 
+	VictoryLabel, 
+	VictoryAxis,
 } from 'victory';
 
 const SharesByTeachers = ({ recordings, recordingsByTeachers  }) => {
@@ -30,13 +32,33 @@ const SharesByTeachers = ({ recordings, recordingsByTeachers  }) => {
 
 	return (	
 		<VictoryChart
+		width={500}
+		height={400}
+		style={{
+			parent: {
+				width: "50%",
+				height: "50%",
+			}
+		}}
 		domainPadding={25}
 		>
+		<VictoryAxis
+		label="Anonymized User"
+		style={{axisLabel: {fontSize: 10, padding: 40} }}
+		/>
+		<VictoryAxis
+		dependentAxis
+		label="Share Count"
+		style={{axisLabel: {fontSize: 10, padding: 35 } }} 
+		/>
 		<VictoryBar
 		categories={{
 			x: anonymizedUsers
 		}}
 		data={sharers}
+		labels={(d) => d.y}
+		style={{ labels: { fill: "white" } }}
+		labelComponent={<VictoryLabel dy={30}/>}
 		/>
 		</VictoryChart>
 	)
