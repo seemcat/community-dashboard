@@ -1,5 +1,5 @@
 # tfx-com-dash
-A challenge posed by TeachFX: To build the MVP of their Community Dashboard.
+A challenge posed by one of the startups I applied for: To build the MVP of their Community Dashboard.
 
 ## Running the project
 1.  Install dev dependencies:
