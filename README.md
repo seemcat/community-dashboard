@@ -1,4 +1,4 @@
-# tfx-com-dash
+# Community Dashboard
 A challenge posed by one of the startups I applied for: To build the MVP of their Community Dashboard.
 
 ## Running the project
